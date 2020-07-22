@@ -14,7 +14,8 @@ jobs:
       run:  |
         ouput=$(docker run --rm -i rdok/gpp:alpine3.12 --version)
         if [[ $output != *"g++ (Alpine"* ]]; then
-          echo "Expected g++ identifier was not found."
+          echo "Expected to find the g++ identifier 'g++ (Alpine...'"
+          echo "Actual find: ${output}"
           exit 1
         fi
     - name: Docker login
