@@ -12,7 +12,7 @@ jobs:
       run:  docker build . --tag rdok/gpp:alpine3.12
     - name: Test
       run:  |
-        output=$(docker run --rm -i rdok/gpp:alpine3.12 --version)
+        output=$(docker run --rm -i rdok/gpp:alpine3.12 sh -c 'g++ --version')
         if [[ $output != *"g++ (Alpine"* ]]; then
           echo "Expected to find the g++ identifier 'g++ (Alpine...'"
           echo "Actual find: ${output}"
